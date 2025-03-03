@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Risk Prediction</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            color: #495057;
+        }
+        .form-control {
+            margin-bottom: 10px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .result-container {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Alzheimer's Risk Prediction</h2>
+        <form action="/" method="post">
+            <div class="row">
+                <!-- First Column -->
+                <div class="col-md-4">
+                    <label>Patient ID:</label>
+                    <input type="number" class="form-control" name="PatientID" required>
+
+                    <label>Age:</label>
+                    <input type="number" class="form-control" name="Age" required>
+
+                    <label>Gender (0=Male, 1=Female):</label>
+                    <input type="number" class="form-control" name="Gender" required>
+
+                    <label>Ethnicity:</label>
+                    <input type="number" class="form-control" name="Ethnicity" required>
+
+                    <label>Education Level:</label>
+                    <input type="number" class="form-control" name="EducationLevel" required>
+
+                    <label>BMI:</label>
+                    <input type="number" step="0.01" class="form-control" name="BMI" required>
+
+                    <label>Smoking (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="Smoking" required>
+
+                    <label>Alcohol Consumption:</label>
+                    <input type="number" step="0.01" class="form-control" name="AlcoholConsumption" required>
+
+                    <label>Physical Activity:</label>
+                    <input type="number" step="0.01" class="form-control" name="PhysicalActivity" required>
+
+                    <label>Diet Quality:</label>
+                    <input type="number" step="0.01" class="form-control" name="DietQuality" required>
+
+                    <label>Sleep Quality:</label>
+                    <input type="number" step="0.01" class="form-control" name="SleepQuality" required>
+                </div>
+
+                <!-- Second Column -->
+                <div class="col-md-4">
+                    <label>Family History of Alzheimer's (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="FamilyHistoryAlzheimers" required>
+
+                    <label>Cardiovascular Disease (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="CardiovascularDisease" required>
+
+                    <label>Diabetes (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="Diabetes" required>
+
+                    <label>Depression (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="Depression" required>
+
+                    <label>Head Injury (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="HeadInjury" required>
+
+                    <label>Hypertension (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="Hypertension" required>
+
+                    <label>Systolic BP:</label>
+                    <input type="number" class="form-control" name="SystolicBP" required>
+
+                    <label>Diastolic BP:</label>
+                    <input type="number" class="form-control" name="DiastolicBP" required>
+
+                    <label>Total Cholesterol:</label>
+                    <input type="number" step="0.01" class="form-control" name="CholesterolTotal" required>
+
+                    <label>LDL Cholesterol:</label>
+                    <input type="number" step="0.01" class="form-control" name="CholesterolLDL" required>
+
+                    <label>HDL Cholesterol:</label>
+                    <input type="number" step="0.01" class="form-control" name="CholesterolHDL" required>
+                </div>
+
+                <!-- Third Column -->
+                <div class="col-md-4">
+                    <label>Triglycerides:</label>
+                    <input type="number" step="0.01" class="form-control" name="CholesterolTriglycerides" required>
+
+                    <label>MMSE Score:</label>
+                    <input type="number" step="0.01" class="form-control" name="MMSE" required>
+
+                    <label>Functional Assessment:</label>
+                    <input type="number" step="0.01" class="form-control" name="FunctionalAssessment" required>
+
+                    <label>Memory Complaints (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="MemoryComplaints" required>
+
+                    <label>Behavioral Problems (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="BehavioralProblems" required>
+
+                    <label>ADL Score:</label>
+                    <input type="number" step="0.01" class="form-control" name="ADL" required>
+
+                    <label>Confusion (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="Confusion" required>
+
+                    <label>Disorientation (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="Disorientation" required>
+
+                    <label>Personality Changes (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="PersonalityChanges" required>
+
+                    <label>Difficulty Completing Tasks (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="DifficultyCompletingTasks" required>
+
+                    <label>Forgetfulness (0=No, 1=Yes):</label>
+                    <input type="number" class="form-control" name="Forgetfulness" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3 w-100">Submit</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result-container">
+                Prediction Result: {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
